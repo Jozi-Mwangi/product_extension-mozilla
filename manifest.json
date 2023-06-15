@@ -1,0 +1,22 @@
+{
+    "manifest_version": 1,
+    "name": "product_extension",
+    "version": "1.0",
+
+    "description": "This extension will take product links in a website, parse the data to get, the price, soldBy and other information. The data will then be written to a CSV file",
+    
+    "icons": {
+        "48":"icons/product-48.png"
+    },
+
+    "permissions": [
+        "activeTab"
+    ],
+
+    "browser_action": {
+        "default_icon": "icons/product-48.png" ,
+        "default_title": "product_extension",
+        "default_popup": "popup/parse.html"
+    }
+
+}

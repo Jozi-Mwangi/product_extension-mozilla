@@ -9,6 +9,16 @@
         "48":"icons/product-48.png"
     },
 
+
+    "background" : {
+        "scripts": ["scripts/backgroundScript.js"],
+        "persistent" : false
+    },
+
+    "content_scripts" : {
+
+    },
+
     "permissions": [
         "activeTab"
     ],

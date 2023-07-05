@@ -1,11 +1,11 @@
 function findProductLinksInPage () {
     const articleElement = document.querySelector("article")
-    const divElements = articleElement ? articleElement.querySelector("div") : []
+    const divElements = articleElement ? articleElement.querySelectorAll("div") : []
     
     const links = []
 
     divElements.forEach((divElement)=>{
-        const anchorElements = divElement.getElementsByName("a")
+        const anchorElements = divElement.querySelectorAll("a")
         for (let i=0; i<anchorElements.length; i++) {
             const link = anchorElements[i].href
             links.push(link)
@@ -15,14 +15,14 @@ function findProductLinksInPage () {
 }
 
 function listenForClicks () {
-    document.addEventListener =()=> {
-        var yesButton = document.getElementById("yes button")
-        yesButton.addEventListener("click", findProductLinksInPage)
+    const yesButton = document.getElementById("yes_button")
+    yesButton.addEventListener("click", findProductLinksInPage)
 
-        var noButton = document.querySelector("#no_button")
-        noButton.classList.remove("hidden")
-    }
+    var noButton = document.querySelector("#no_button")
+    noButton.classList.remove("hidden")
 }
+
+listenForClicks()
 
 function reportScriptError (error) {
     document.querySelector("#yes_button").classList.add("hidden")
@@ -32,5 +32,4 @@ function reportScriptError (error) {
 
 browser.tabs
     .executeScript({file: "content_script/contentScript.js"})
-    .then(listenForClicks)
     .catch(reportScriptError)

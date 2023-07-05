@@ -12,14 +12,16 @@
 
     "background" : {
         "scripts": ["scripts/backgroundScript.js"],
-        "persistent" : false
+        "persistent" : true
     },
 
     "content_scripts" : {
-
+        "matches" : ["https://vendify.co.ke/*"],
+        "js": ["scripts/contentScript.js"]
     },
 
     "permissions": [
+        "tabs",
         "activeTab"
     ],
 
